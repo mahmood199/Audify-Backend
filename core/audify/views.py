@@ -3,8 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.decorators import *
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from .models import *
-from .serializers import AudioSerializer
+from .serializers import AudioSerializer, ArtistSerializer
 
 
 @api_view(['GET'])
@@ -25,3 +26,10 @@ def add_audio(request):
 
     serializer.save()
     return Response({'status': 201, 'payload': serializer.data, 'message': "Data received"})
+
+
+@api_view('GET')
+def get_all_artists(request):
+    artists = Artist.objects.all()
+    serializer = ArtistSerializer(artists, many=True)
+    return Response({'status': 200, 'message': "Successful", 'payload': serializer.data})

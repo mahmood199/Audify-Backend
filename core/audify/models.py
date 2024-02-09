@@ -20,3 +20,17 @@ class Audio(models.Model):
     language = models.CharField(max_length=20, choices=LANGUAGE_CHOICES)
     play_count = models.PositiveIntegerField(default=0)
 
+
+class Artist(models.Model):
+    title = models.CharField(max_length=200)
+
+    LANGUAGE_CHOICES = [
+        ('singer', 'Singer'),
+        ('guitarist', 'Guitarist'),
+    ]
+
+    role = models.CharField(max_length=200, choices=LANGUAGE_CHOICES)
+    type = models.CharField(max_length=200)
+    url = models.CharField(max_length=200)
+
+

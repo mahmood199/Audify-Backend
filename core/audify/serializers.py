@@ -35,3 +35,9 @@ class AudioSerializer(serializers.ModelSerializer):
             validation_errors['language'] = "Language is mandatory"
 
         return data
+
+
+class ArtistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artist
+        fields = '__all__'
