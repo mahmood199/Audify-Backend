@@ -6,5 +6,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('', hello_world)
+    path('get_audios', get_all_audios),
+    path('add_audio', add_audio)
 ]
